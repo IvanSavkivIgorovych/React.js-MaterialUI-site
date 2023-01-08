@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React.js-MaterialUI-site/static/css/main.073c9b0a.css",
+    "main.js": "/React.js-MaterialUI-site/static/js/main.09a0e386.js",
+    "static/js/787.76c25b06.chunk.js": "/React.js-MaterialUI-site/static/js/787.76c25b06.chunk.js",
+    "index.html": "/React.js-MaterialUI-site/index.html",
+    "main.073c9b0a.css.map": "/React.js-MaterialUI-site/static/css/main.073c9b0a.css.map",
+    "main.09a0e386.js.map": "/React.js-MaterialUI-site/static/js/main.09a0e386.js.map",
+    "787.76c25b06.chunk.js.map": "/React.js-MaterialUI-site/static/js/787.76c25b06.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.09a0e386.js"
+  ]
+}
