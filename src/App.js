@@ -1,4 +1,5 @@
 import "./App.css";
+import React from "react";
 import {
   AppBar,
   Box,
@@ -12,12 +13,18 @@ import {
   Typography,
   CardContent,
   CardActions,
+  BottomNavigation,
+  BottomNavigationAction,
 } from "@mui/material";
 import { Container } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
 import { makeStyles } from "@mui/styles";
 import LayersIcon from "@mui/icons-material/Layers";
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
+import RestoreIcon from "@mui/icons-material/Restore";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import FolderIcon from "@mui/icons-material/Folder";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -62,6 +69,12 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function App() {
   const classes = useStyles();
+  const [value, setValue] = React.useState("recents");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <>
       <AppBar position="sticky">
@@ -200,6 +213,50 @@ function App() {
           </Grid>
         </Container>
       </main>
+
+      <footer>
+        <Typography variant="h6" align="center" gutterBottom>
+          Footer
+        </Typography>
+        <BottomNavigation
+          value={value}
+          onChange={handleChange}
+          className={classes.root}
+        >
+          <BottomNavigationAction
+            label="Recents"
+            value="recents"
+            icon={<RestoreIcon />}
+          />
+
+          <BottomNavigationAction
+            label="Favourites"
+            value="favourites"
+            icon={<FavoriteIcon />}
+          />
+
+          <BottomNavigationAction
+            label="Nearby"
+            value="nearby"
+            icon={<LocationOnIcon />}
+          />
+
+          <BottomNavigationAction
+            label="Folder"
+            value="folder"
+            icon={<FolderIcon />}
+          />
+        </BottomNavigation>
+
+        <Typography
+          align="center"
+          color="textSecondary"
+          component="p"
+          variant="subtitle1"
+        >
+          React.js MaterialUI site
+        </Typography>
+      </footer>
     </>
   );
 }
