@@ -3,15 +3,21 @@ import {
   AppBar,
   Box,
   Button,
+  CardMedia,
+  Card,
   Grid,
   IconButton,
   Paper,
   Toolbar,
   Typography,
+  CardContent,
+  CardActions,
 } from "@mui/material";
 import { Container } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
 import { makeStyles } from "@mui/styles";
+import LayersIcon from "@mui/icons-material/Layers";
+import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -30,16 +36,29 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "rgba(0,0,0,.3)",
   },
   mainFeaturesPost: {
+    position: "relative",
     marginBottom: "32px",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   },
   mainFeaturesPostContent: {
+    position: "relative",
     color: "white",
     padding: "72px",
   },
+  cardMedia: {
+    paddingTop: "56.25%",
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  cardGrid: {
+    marginTop: "32px",
+  },
 }));
+
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function App() {
   const classes = useStyles();
@@ -80,13 +99,13 @@ function App() {
                 <div className={classes.mainFeaturesPostContent}>
                   <Typography
                     component="h1"
-                    variant="h3"
+                    variant="h4"
                     color="inherit"
                     gutterBottom
                   >
                     React MaterialUI site
                   </Typography>
-                  <Typography variant="h5" color="inherit" paragraph>
+                  <Typography variant="h6" color="inherit" paragraph>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. In
                     architecto explicabo nemo iusto cumque atque vero, delectus,
                     facere, sunt iste voluptatem veritatis quisquam perferendis
@@ -100,6 +119,86 @@ function App() {
             </Grid>
           </Container>
         </Paper>
+
+        <div className={classes.mainContent}>
+          <Container maxWidth="md">
+            <Typography
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              React MaterialUI site
+            </Typography>
+            <Typography
+              variant="h5"
+              align="center"
+              color="textSecondary"
+              paragraph
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. In
+              architecto explicabo nemo iusto cumque atque vero, delectus,
+              facere, sunt iste voluptatem veritatis quisquam perferendis
+              commodi? In architecto explicabo nemo iusto cumque atque vero,
+              delectus, facere, sunt iste voluptatem veritatis quisquam
+              perferendis commodi?
+            </Typography>
+
+            <div className={classes.mainButtons}>
+              <Grid container spacing={5} justifyContent="center">
+                <Grid item>
+                  <Button variant="contained" color="primary">
+                    Start now
+                  </Button>
+                </Grid>
+
+                <Grid item>
+                  <Button variant="outlined" color="primary">
+                    Learn more
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
+          </Container>
+        </div>
+
+        <Container className={classes.cardGrid} maxWidth="md">
+          <Grid container spacing={4}>
+            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography variant="h5" gutterBottom>
+                      Blog post
+                    </Typography>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Dolorum doloribus consequuntur itaque repellendus possimus
+                      ipsa?
+                    </Typography>
+                  </CardContent>
+
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View
+                    </Button>
+                    <Button size="small" color="primary">
+                      Edit
+                    </Button>
+
+                    <LayersIcon />
+                    <PlayCircleFilledIcon />
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       </main>
     </>
   );
